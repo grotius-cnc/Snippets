@@ -1,5 +1,3 @@
-# Snippets
-
 It looks simple but retrieving openGl pixel values from datatype `unsigned int *pixel` took me some time to figur out.
 Maybe i had a bad programming day..?
 
