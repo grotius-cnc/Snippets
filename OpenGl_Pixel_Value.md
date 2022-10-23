@@ -10,33 +10,33 @@ Example:
       //! Color channels Rgba=4.
       int channels=4;
       //! The screen width in pixels.
-      int width=100;
+      int width=200;
       //! The screen height in pixels.
-      int height=100;
+      int height=200;
       //! Needed memory size.
       int size=channels*width*height;
       //! Create pixel storage for a certain size.
-      unsigned int *pixels = new unsigned int[size];
+      GLubyte *pixels = new GLubyte[size];
       if(pixels){
-          //! OpenGl function to read a rectangular of the screen pixels.
-          glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+        //! OpenGl function to read a rectangular of the screen pixels.
+        glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
       }
       //! Look for pixel value at:
-      int x=10;
-      int y=10;
+      int x=5;
+      int y=5;
       //! Check screen limits.
       if( x < 0 || x > width -1 || y < 0 || y > height -1 ){
-          //! Out of reach.
+        //! Out of reach.
       } else {
-          //! Idx is the pixel counter.
-          int idx = (y * width + x) * channels;
-          //! Pixel color output.
-          GLubyte r = pixels[ idx + 0 ];
-          GLubyte g = pixels[ idx + 1 ];
-          GLubyte b = pixels[ idx + 2 ];
-          GLubyte a = pixels[ idx + 3 ];
-          //! Print result.
-          std::cout<<"r:"<<(int)r<<" g:"<<(int)g<<" b:"<<(int)b<<" a:"<<(int)a<<std::endl;
+        //! Idx is the pixel counter.
+        int idx = (y * width + x) * channels;
+        //! Pixel color output.
+        GLubyte r = pixels[ idx + 0 ];
+        GLubyte g = pixels[ idx + 1 ];
+        GLubyte b = pixels[ idx + 2 ];
+        GLubyte a = pixels[ idx + 3 ];
+        //! Print result.
+        std::cout<<"r:"<<(GLint)r<<" g:"<<(GLint)g<<" b:"<<(GLint)b<<" a:"<<(GLint)a<<std::endl;
       }
       
 My terminal output was :
